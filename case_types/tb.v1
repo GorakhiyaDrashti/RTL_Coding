@@ -1,0 +1,30 @@
+// Code your testbench here
+// or browse Examples
+module tb;
+  logic [7:0]a;
+  logic [3:0]sel;
+  logic [4:0]out;
+  
+  casestatment dut(.a(a),.sel(sel),.out(out));
+  
+  initial begin
+    a = 8'b11000110;
+     #10; 
+    sel = 4'b0000;
+     #20;
+    sel = 4'b0101;
+    #20;
+    sel = 4'b1010;
+     #20;
+    sel = 4'b1111;
+  end
+  
+  initial begin
+    $dumpfile("dump.vcd");
+    $dumpvars;
+    
+    #100;
+    $finish;
+  end
+endmodule
+  
