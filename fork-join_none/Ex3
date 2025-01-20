@@ -1,0 +1,15 @@
+module fork_join_none_delays;
+    initial begin
+        fork
+            #5 $display("Thread 1 executed after 5 time units");
+        join_none
+        
+        fork
+            #2 $display("Thread 2 executed after 2 time units");
+        join_none
+        
+        $display("Parent thread executed immediately.");
+        wait fork;
+        $display("All threads completed.");
+    end
+endmodule
