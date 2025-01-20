@@ -13,3 +13,8 @@ module fork_join_none;
  end
 endmodule
    
+
+output: 
+i = 3, result = 9
+i = 3, result = 9
+i = 3, result = 9
