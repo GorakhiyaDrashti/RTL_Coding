@@ -1,0 +1,29 @@
+
+   
+   module fork_join_none_nested;
+    initial begin
+        fork
+            automatic int result1;
+            result1 = 10;
+            $display("Thread 1: result1 = %0d", result1);
+            
+            fork
+                automatic int result2;
+                result2 = 20;
+                $display("Thread 2: result2 = %0d", result2);
+            join_none
+        join_none
+        
+        $display("Parent thread continuing...");
+        wait fork;
+        $display("All threads completed.");
+    end
+endmodule
+
+
+output:
+Parent thread continuing...
+Thread 1: result1 = 10
+All threads completed.
+Thread 2: result2 = 20
+
